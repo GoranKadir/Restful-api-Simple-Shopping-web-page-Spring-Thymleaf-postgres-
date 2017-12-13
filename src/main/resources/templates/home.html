@@ -18,13 +18,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Categories <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" th:href="@{/admin/customers/all}">Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/admin/clothes/all}">Admin stuff</a>
+        <a class="nav-link" th:href="@{/admin/clothes/all}">Admin clothes in stock</a>
       </li>
     </ul>
   </div>
@@ -47,7 +47,9 @@
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      ...
+      <p>Description about the product</p>
+      <p>Description about the product</p>
+      <p>Description about the product</p>
     </div>
   </div>
 </div>

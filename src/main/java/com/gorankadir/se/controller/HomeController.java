@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
@@ -39,18 +41,24 @@ public class HomeController {
         return "home";
 	}
 	
-	public String postClothes(Model model){
+	@RequestMapping(path="/admin/clothes/all", method=RequestMethod.POST)
+	public String postClothes(@ModelAttribute Clothes newclothes, Model model){
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Clothes[]> clothes = restTemplate.getForEntity("http://localhost:8080/customers/postclothes", Clothes[].class);
+		restTemplate.postForEntity("http://localhost:8080/customers/postclothes", newclothes, Object.class);
+/*		ResponseEntity<Clothes[]> clothes = restTemplate.getForEntity("http://localhost:8080/customers/clothes", Clothes[].class);
+        model.addAttribute("clothes", clothes.getBody());
+        model.addAttribute("newclothes", new Clothes());
 		model.addAttribute("postclothes", clothes.getBody());
-		return "clothestable";
+		return "clothestable";*/
+		return getClothesList(model);
 	}
 	
-	@RequestMapping("/admin/clothes/all")
+	@RequestMapping(path="/admin/clothes/all", method=RequestMethod.GET)
     public String getClothesList(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Clothes[]> clothes = restTemplate.getForEntity("http://localhost:8080/customers/clothes", Clothes[].class);
         model.addAttribute("clothes", clothes.getBody());
+        model.addAttribute("newclothes", new Clothes());
         return "clothestable";
 	}
 	
