@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Hello World!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+ integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+ <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+</head>
+<body>
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Brand name</th>
+      <th scope="col">type</th>
+      <th scope="col">size</th>
+      <th scope="col">pic url</th>
+    </tr>
+  </thead>
+    <tbody>
+        <tr th:each="clothes : ${clothes}">
+        	 <td scope="col" th:text="${clothes.clothesId}"></td>
+            <td scope="col" th:text="${clothes.brandName}"></td>
+            <td scope="col" th:text="${clothes.clothestype}"></td>
+            <td scope="col" th:text="${clothes.size}"></td>
+            <td scope="col" th:text="${clothes.picname}"></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+<h2 class="col-md">Add new clothes to the shop</h2>
+</div>
+<form class="col-md-12" method="get">
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault01">Brand name</label>
+      <input type="text" class="form-control" id="validationDefault01" placeholder="Brand name" required = "true" />
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault02">Type</label>
+      <input type="text" class="form-control" id="validationDefault02" placeholder="Type" required= "true" />
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault03">Size</label>
+      <input type="text" class="form-control" id="validationDefault03" placeholder="Size" required = "true" />
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault04">Picture url</label>
+      <input type="text" class="form-control" id="validationDefault04" placeholder="pucture url" required = "true" />
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
