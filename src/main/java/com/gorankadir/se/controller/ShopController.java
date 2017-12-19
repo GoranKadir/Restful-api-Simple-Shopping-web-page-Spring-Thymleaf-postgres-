@@ -41,7 +41,7 @@ public class ShopController {
 	}
 
 	/**
-	 * Show all clothes i stoke!
+	 * Show all clothes!
 	 */
 	@RequestMapping(value = "/clothes", method = RequestMethod.GET)
 	public List<Clothes> getClothes() {
@@ -50,7 +50,7 @@ public class ShopController {
 	}
 
 	/*
-	 * Lägger till customer och vilken kläder den har
+	 * post customer and what type of clothes.
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ResponseEntity<Void> saveCustomer(@RequestBody Customer customer) {
@@ -64,7 +64,7 @@ public class ShopController {
 	}
 	
 	/*
-	 * lägg till nya kläder
+	 * post new clothes
 	 */
 	@RequestMapping(value = "/postclothes", method = RequestMethod.POST)
 	public ResponseEntity<Void> saveClothes(@RequestBody Clothes clothes) {
@@ -75,7 +75,7 @@ public class ShopController {
 	
 	
 
-	// Funkar bara updatera med customer
+	// update a customer
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
 		customer.setCustomerId(id);
@@ -85,7 +85,7 @@ public class ShopController {
 	}
 
 	/*
-	 * Updaterar clothes
+	 * Update clothes
 	 */
 	@RequestMapping(value = "/updateclothes/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> updateClothes(@PathVariable("id") long id, @RequestBody Clothes clothes) {
@@ -96,7 +96,7 @@ public class ShopController {
 	}
 
 	/*
-	 * Delete en customer
+	 * Delete a customer
 	 */
 	@RequestMapping(value = "/{customerId}", method = RequestMethod.DELETE)
 	ResponseEntity<Void> deleteCustomer(@PathVariable(name = "customerId") long id) {
@@ -105,7 +105,7 @@ public class ShopController {
 	}
 
 	/*
-	 * Delete ett klädselplagg
+	 * Delete clothes
 	 */
 	@RequestMapping(value = "/deleteclothes/{clothesId}", method = RequestMethod.DELETE)
 	ResponseEntity<Void> deleteClothes(@PathVariable(name = "clothesId") long id) {

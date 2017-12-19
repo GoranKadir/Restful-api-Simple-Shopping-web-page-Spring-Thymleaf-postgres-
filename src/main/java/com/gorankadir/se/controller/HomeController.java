@@ -62,5 +62,11 @@ public class HomeController {
         return "clothestable";
 	}
 	
+//	@RequestMapping(path="/admin/clothes/all", method=RequestMethod.DELETE)
+//	public void deleteClothes(Long id){
+//		RestTemplate restTemplate = new RestTemplate();
+//		restTemplate.delete("http://localhost:8080/customers/deleteclothes" + id);
+//	}
+//	
 	
 }
